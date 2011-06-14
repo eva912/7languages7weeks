@@ -12,8 +12,10 @@ class Tree
   end
 
   def initialize_with_hash(tree)
-    @children = []
-    @node_name = 'not sure yet'
+    tree.each_pair do |name, children|
+      @node_name = name
+      @children = []
+    end
   end
 
   def visit_all(&block)
