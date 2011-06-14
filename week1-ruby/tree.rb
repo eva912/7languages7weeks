@@ -31,3 +31,7 @@ family_tree = Tree.new({'grandpa' => {
                         'dad' => {'child 1' => {}, 'child 2' => {}},
                         'uncle' => {'child 3' => {}, 'child 4' => {}}
                       }})
+
+puts
+puts 'Visiting family tree'
+family_tree.visit_all{|node| puts node.node_name }
