@@ -1,9 +1,19 @@
 class Tree
   attr_accessor :children, :node_name
 
-  def initialize(name, children = [])
+  def initialize(first_argument, children = [])
+    initialize_with_hash(first_argument) if first_argument.is_a? Hash
+    initialize_with_string(first_argument, children) if first_argument.is_a? String
+  end
+
+  def initialize_with_string(name, children = [])
     @children = children
     @node_name = name
+  end
+
+  def initialize_with_hash(tree)
+    @children = []
+    @node_name = 'not sure yet'
   end
 
   def visit_all(&block)
