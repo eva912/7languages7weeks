@@ -15,6 +15,9 @@ class Tree
     tree.each_pair do |name, children|
       @node_name = name
       @children = []
+      children.each do |child|
+        @children << Tree.new({child[0] => child[1]})
+      end
     end
   end
 
