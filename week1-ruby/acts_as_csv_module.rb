@@ -1,5 +1,14 @@
 module ActsAsCsv
 
+  class CsvRow
+    attr :contents
+
+    def initialize(contents)
+      @contents = contents
+    end
+
+  end
+
   def self.included(base)
     base.extend ClassMethods
   end
@@ -28,8 +37,12 @@ module ActsAsCsv
     end
 
     def each(&block)
-      @csv_contents.each {|r| block.call(r) }
+      @csv_contents.each do |r|
+        row = CsvRow.new(r)
+        block.call(row)
+      end
     end
+
   end
 
 end
