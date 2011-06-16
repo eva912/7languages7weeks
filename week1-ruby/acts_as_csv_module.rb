@@ -26,6 +26,10 @@ module ActsAsCsv
         @csv_contents << row.chomp.split(', ')
       end
     end
+
+    def each(&block)
+      @csv_contents.each {|r| block.call(r) }
+    end
   end
 
 end
@@ -38,3 +42,5 @@ end
 m = RubyCsv.new
 puts m.headers.inspect
 puts m.csv_contents.inspect
+
+m.each{|row| puts row.inspect }
