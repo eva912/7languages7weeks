@@ -1,10 +1,17 @@
 module ActsAsCsv
 
   class CsvRow
-    attr :contents
+    attr :contents, :headers
 
-    def initialize(contents)
+    def initialize(headers, contents)
+      @headers = headers
       @contents = contents
+    end
+
+    def method_missing(method)
+      index = @headers.index(method.to_s)
+      raise "No heading '#{method}' in the CSV file." if index.nil?
+      @contents[index]
     end
 
   end
@@ -38,7 +45,7 @@ module ActsAsCsv
 
     def each(&block)
       @csv_contents.each do |r|
-        row = CsvRow.new(r)
+        row = CsvRow.new(@headers, r)
         block.call(row)
       end
     end
@@ -56,4 +63,4 @@ m = RubyCsv.new
 puts m.headers.inspect
 puts m.csv_contents.inspect
 
-m.each{|row| puts row.inspect }
+m.each{|row| puts row.one }
