@@ -1,4 +1,6 @@
 fib := method(number,
+  if(number < 2, return number)
+
   preprevious := 0
   previous := 1
   current := 1
@@ -10,6 +12,7 @@ fib := method(number,
   current
 )
 
+fib(0) println
 fib(1) println
 fib(2) println
 fib(3) println
