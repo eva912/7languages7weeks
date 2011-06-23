@@ -7,7 +7,14 @@ List2d dim := method(x, y,
     items append(innerItems)
   )
 )
+List2d set := method(x, y, value,
+  innerList := items at(y - 1)
+  innerList atPut(x - 1, value)
+)
 
 myList := List2d clone
 myList dim(3, 5)
+myList set(1, 1, "Begin")
+myList set(2, 3, "Middle")
+myList set(3, 5, "End")
 myList items println
