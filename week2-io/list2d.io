@@ -1,3 +1,7 @@
+Object shouldEqual := method(expected,
+  if(self == expected, "." print, ("Expected " .. self .. " to equal " .. expected) println)
+)
+
 List2d := Object clone
 List2d items := list()
 List2d dim := method(x, y,
@@ -16,16 +20,11 @@ List2d get := method(x, y,
 
 myList := List2d clone
 myList dim(3, 5)
+myList items size shouldEqual(5)
+
 myList set(1, 1, "Begin")
 myList set(2, 3, "Middle")
 myList set(3, 5, "End")
-myList items println
-myList get(1, 1) println
-myList get(2, 3) println
-myList get(3, 5) println
-
-Object shouldEqual := method(expected,
-  if(self == expected, "." print, ("Expected " .. self .. " to equal " .. expected) println)
-)
-
+myList get(1, 1) shouldEqual("Begin")
+myList get(2, 3) shouldEqual("Middle")
 myList get(3, 5) shouldEqual("End")
