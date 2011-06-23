@@ -8,8 +8,7 @@ List2d dim := method(x, y,
   )
 )
 List2d set := method(x, y, value,
-  innerList := items at(y - 1)
-  innerList atPut(x - 1, value)
+  items at(y - 1) atPut(x - 1, value)
 )
 List2d get := method(x, y,
   items at(y - 1) at(x - 1)
