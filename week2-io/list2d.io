@@ -23,3 +23,9 @@ myList items println
 myList get(1, 1) println
 myList get(2, 3) println
 myList get(3, 5) println
+
+assertEqual := method(expected, actual,
+  if(actual == expected, "." print, ("Expected " .. actual .. " to equal " .. expected) println)
+)
+
+assertEqual("End", myList get(3, 4))
