@@ -1,5 +1,5 @@
 smaller(X, Y, What) :-
-  (X < Y), What is X.
+  (X =< Y), What is X.
 
 smaller(X, Y, What) :-
   (Y < X), What is Y.
