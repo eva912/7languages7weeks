@@ -40,5 +40,8 @@ xShouldWin.winner
 val zeroShouldWin = new Tictactoe(List("0", "0", "X", "", "0", "", "X", "X", "0"))
 zeroShouldWin.winner
 
+val anotherTest = new Tictactoe(List("0", "", "X", "0", "X", "X", "0", "X", "0"))
+anotherTest.winner
+
 val stalemate = new Tictactoe(List("0", "0", "X", "X", "X", "0", "0", "X", "0"))
 stalemate.winner
