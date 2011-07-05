@@ -28,7 +28,7 @@ class Triplet(val first:Int, val second:Int, val third:Int) {
     } else {
       ""
     }
- }
+  }
 }
 
 val newGame = new Tictactoe(List("", "", "", "", "", "", "", "", ""))
